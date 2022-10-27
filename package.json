@@ -1,7 +1,7 @@
 {
   "name": "countries-explorer",
   "version": "0.1.0",
-  "private": true,
+  "prettier": "@countries-explorer/prettier-config",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -41,6 +41,8 @@
     ]
   },
   "devDependencies": {
+    "@countries-explorer/prettier-config": "file:prettier-config",
+    "prettier": "2.7.1",
     "sass": "^1.55.0"
   }
 }

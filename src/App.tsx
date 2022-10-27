@@ -4,7 +4,7 @@ import './styles/base.scss';
 
 function App() {
   return (
-    <div className='dark'>
+    <div className="dark">
       <Header />
     </div>
   );
