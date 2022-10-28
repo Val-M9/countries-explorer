@@ -1,1 +1,2 @@
-export { ThemeType } from './theme-type';
+export { Colors } from './colors';
+export * from './shadows';

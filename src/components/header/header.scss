@@ -1,6 +1,6 @@
 @use '../../styles/fonts.scss' as *;
 
-.content {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +12,7 @@
     font-size: $heading;
   }
 
-  & .mode-btn {
+  & .theme-btn {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -22,7 +22,8 @@
 
     & .icon {
       height: 32px;
-      padding-right: 15px;
+      width: 32px;
+      padding-right: 10px;
     }
   }
 }
