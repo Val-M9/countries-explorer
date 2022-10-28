@@ -1,42 +1,36 @@
-import { ClassNames } from '@emotion/react';
+/** @jsxImportSource @emotion/react */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { useTheme, jsx, ClassNames } from '@emotion/react';
 import { Sun, Moon } from '../../common/svg/svg';
-import './header.scss';
+import { header, heading, themeBtn, icon } from './styles';
 
 type HeaderProps = {
   onToggleTheme: () => void;
 };
 
 const Header = ({ onToggleTheme }: HeaderProps) => {
+  const theme = useTheme();
   return (
-    <ClassNames>
-      {({ css, cx, theme }) => (
-        <div
-          className={cx(
-            'header',
-            css`
-              background-color: ${theme.backgroundSecondary};
-              color: ${theme.primaryText};
-              box-shadow: ${theme.dark ? theme.headerDarkShadow : theme.headerLightShadow};
-            `,
-          )}
-        >
-          <h1 className="heading">Where in the world</h1>
-          <div className="theme-btn" onClick={onToggleTheme}>
-            {theme.dark ? (
-              <>
-                <Sun className="icon" />
-                <p>Light mode</p>
-              </>
-            ) : (
-              <>
-                <Moon className="icon" />
-                <p>Dark mode</p>
-              </>
-            )}
-          </div>
-        </div>
-      )}
-    </ClassNames>
+    <div css={header}>
+      <h1 css={heading}>Where in the world</h1>
+      <div css={themeBtn} onClick={onToggleTheme}>
+        {theme.dark ? (
+          <>
+            <div css={icon}>
+              <Sun />
+            </div>
+            <p>Light mode</p>
+          </>
+        ) : (
+          <>
+            <div css={icon}>
+              <Moon />
+            </div>
+            <p>Dark mode</p>
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 

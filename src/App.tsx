@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { themeSchemas } from './theme/theme';
+import { themeSchemas } from './styles/theme';
 import { Header } from './components/components';
 import './App.scss';
 

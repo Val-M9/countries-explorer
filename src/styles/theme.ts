@@ -1,13 +1,25 @@
-import { Colors, DarkThemeShadows, LightThemeShadows } from '../common/enums/enums';
+import { Colors, DarkThemeShadows, FontSize, FontWeight, LightThemeShadows } from '../common/enums';
 
-const shadows = {
+export const shadows = {
   headerDarkShadow: DarkThemeShadows.HEADER,
   primaryDarkShadow: DarkThemeShadows.PRIMARY,
   headerLightShadow: LightThemeShadows.HEADER,
   PrimaryLightShadow: LightThemeShadows.PRIMARY,
 };
 
-const themeSchemas = {
+export const fontWeight = {
+  light: FontWeight.LIGHT,
+  normal: FontWeight.NORMAL,
+  bold: FontWeight.BOLD,
+};
+
+export const fontSize = {
+  heading: FontSize.HEADING,
+  title: FontSize.TITLE,
+  text: FontSize.TEXT,
+};
+
+export const themeSchemas = {
   light: {
     dark: false,
     background: Colors.GRAY,
@@ -15,6 +27,8 @@ const themeSchemas = {
     primaryText: Colors.DARK_BLUE,
     secondaryText: Colors.DARK_GRAY,
     ...shadows,
+    ...fontWeight,
+    ...fontSize,
   },
   dark: {
     dark: true,
@@ -23,7 +37,7 @@ const themeSchemas = {
     primaryText: Colors.WHITE,
     secondaryText: Colors.DARK_GRAY,
     ...shadows,
+    ...fontWeight,
+    ...fontSize,
   },
 };
-
-export { themeSchemas };
