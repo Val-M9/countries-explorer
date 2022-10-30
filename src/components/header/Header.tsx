@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useTheme, jsx, ClassNames } from '@emotion/react';
+import { useTheme } from '@emotion/react';
 import { Sun, Moon } from '../../common/svg/svg';
 import { header, heading, themeBtn, icon } from './styles';
 

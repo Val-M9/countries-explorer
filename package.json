@@ -44,7 +44,6 @@
   },
   "devDependencies": {
     "@countries-explorer/prettier-config": "file:prettier-config",
-    "prettier": "2.7.1",
-    "sass": "1.55.0"
+    "prettier": "2.7.1"
   }
 }

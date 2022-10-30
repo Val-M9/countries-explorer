@@ -8,7 +8,6 @@ export const header = (theme: Theme) => css`
   padding: 0 50px;
   height: 80px;
   background-color: ${theme.backgroundSecondary};
-  color: ${theme.primaryText};
   box-shadow: ${theme.dark ? theme.headerDarkShadow : theme.headerLightShadow};
 `;
 

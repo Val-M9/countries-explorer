@@ -1,23 +1,17 @@
 import type { ReactNode } from 'react';
-import { useState } from 'react';
+import type { Theme } from '@emotion/react';
 import { Global, ThemeProvider } from '@emotion/react';
-import { themeSchemas } from '../styles/theme';
+import { globalStyles } from '../styles/global-styles';
 
 type ThemeProviderProps = {
   children: ReactNode;
+  theme: Theme;
 };
 
-const themeColors = {
-  dark: themeSchemas.dark,
-  light: themeSchemas.light,
-};
-
-const CustomThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState(themeColors.light);
-
+const CustomThemeProvider = ({ children, theme }: ThemeProviderProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <Global styles />
+      <Global styles={globalStyles} />
       {children}
     </ThemeProvider>
   );

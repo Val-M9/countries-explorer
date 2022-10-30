@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import { ThemeProvider } from '@emotion/react';
 import { themeSchemas } from './styles/theme';
 import { Header } from './components/components';
-import './App.scss';
+import { CustomThemeProvider } from './custom-provider/custom-theme-provider';
 
 const themeColors = {
   dark: themeSchemas.dark,
   light: themeSchemas.light,
 };
 
-function App() {
+const App = () => {
   const [theme, setTheme] = useState(themeColors.light);
 
   const handleToggleTheme = () => {
@@ -17,10 +16,10 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <CustomThemeProvider theme={theme}>
       <Header onToggleTheme={handleToggleTheme} />
-    </ThemeProvider>
+    </CustomThemeProvider>
   );
-}
+};
 
 export default App;

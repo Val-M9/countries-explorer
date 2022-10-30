@@ -15,8 +15,11 @@ export const fontWeight = {
 
 export const fontSize = {
   heading: FontSize.HEADING,
+  headingMobile: FontSize.HEADING_MOBILE,
   title: FontSize.TITLE,
+  titleMobile: FontSize.TITLE_MOBILE,
   text: FontSize.TEXT,
+  textMobile: FontSize.TEXT_MOBILE,
 };
 
 export const themeSchemas = {
