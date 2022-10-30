@@ -7,7 +7,7 @@ export const header = (theme: Theme) => css`
   align-items: center;
   padding: 0 50px;
   height: 80px;
-  background-color: ${theme.backgroundSecondary};
+  background-color: ${theme.backgroundSecondaryColor};
   box-shadow: ${theme.dark ? theme.headerDarkShadow : theme.headerLightShadow};
 `;
 
@@ -28,6 +28,5 @@ export const themeBtn = (theme: Theme) => css`
 export const icon = css`
   height: 32px;
   width: 32px;
-  padding-top: 5px;
   padding-right: 10px;
 `;

@@ -15,16 +15,12 @@ const Header = ({ onToggleTheme }: HeaderProps) => {
       <div css={themeBtn} onClick={onToggleTheme}>
         {theme.dark ? (
           <>
-            <div css={icon}>
-              <Sun />
-            </div>
+            <Sun css={icon} />
             <p>Light mode</p>
           </>
         ) : (
           <>
-            <div css={icon}>
-              <Moon />
-            </div>
+            <Moon css={icon} />
             <p>Dark mode</p>
           </>
         )}

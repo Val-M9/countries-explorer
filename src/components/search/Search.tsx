@@ -1,11 +1,13 @@
+/** @jsxImportSource @emotion/react */
 import { Magnifier } from '../../common/svg/svg';
+import { inputWrapper, input, icon } from './styles';
 
 const Search = () => {
   return (
-    <>
-      <Magnifier />
-      <input placeholder="Search for country..." />
-    </>
+    <div css={inputWrapper}>
+      <Magnifier css={icon} />
+      <input css={input} placeholder="Search for country..." />
+    </div>
   );
 };
 

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { themeSchemas } from './styles/theme';
 import { Header } from './components/components';
 import { CustomThemeProvider } from './custom-provider/custom-theme-provider';
+import { Search } from './components/search/Search';
 
 const themeColors = {
   dark: themeSchemas.dark,
@@ -18,6 +19,7 @@ const App = () => {
   return (
     <CustomThemeProvider theme={theme}>
       <Header onToggleTheme={handleToggleTheme} />
+      <Search />
     </CustomThemeProvider>
   );
 };

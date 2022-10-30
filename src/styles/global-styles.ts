@@ -19,8 +19,8 @@ export const globalStyles = (theme: Theme) => css`
     width: 100%;
     max-width: 1440px;
     height: 100vh;
-    background: ${theme.background};
-    color: ${theme.primaryText};
+    background: ${theme.backgroundColor};
+    color: ${theme.primaryTextColor};
   }
 
   input,

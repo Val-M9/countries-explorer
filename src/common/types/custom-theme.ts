@@ -11,8 +11,9 @@ interface FontWeight extends Fw {}
 
 export interface CustomTheme extends Shadows, FontSize, FontWeight {
   dark: boolean;
-  background: string;
-  backgroundSecondary: string;
-  primaryText: string;
-  secondaryText: string;
+  backgroundColor: string;
+  backgroundSecondaryColor: string;
+  primaryTextColor: string;
+  secondaryTextColor: string;
+  iconColor: string;
 }
