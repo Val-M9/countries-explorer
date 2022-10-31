@@ -4,7 +4,7 @@ export const shadows = {
   headerDarkShadow: DarkThemeShadows.HEADER,
   primaryDarkShadow: DarkThemeShadows.PRIMARY,
   headerLightShadow: LightThemeShadows.HEADER,
-  PrimaryLightShadow: LightThemeShadows.PRIMARY,
+  primaryLightShadow: LightThemeShadows.PRIMARY,
 };
 
 export const fontWeight = {
@@ -22,17 +22,23 @@ export const fontSize = {
   textMobile: FontSize.TEXT_MOBILE,
 };
 
+export const radiuses = {
+  rs: 4,
+  rm: 8,
+};
+
 export const themeSchemas = {
   light: {
     dark: false,
     backgroundColor: Colors.GRAY,
     backgroundSecondaryColor: Colors.WHITE,
     primaryTextColor: Colors.DARK_BLUE,
-    secondaryTextColor: Colors.DARK_GRAY,
+    secondaryTextColor: Colors.DARKEN_GRAY,
     iconColor: Colors.LIGHT_GRAY,
     ...shadows,
     ...fontWeight,
     ...fontSize,
+    ...radiuses,
   },
   dark: {
     dark: true,
@@ -44,5 +50,6 @@ export const themeSchemas = {
     ...shadows,
     ...fontWeight,
     ...fontSize,
+    ...radiuses,
   },
 };

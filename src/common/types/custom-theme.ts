@@ -1,15 +1,18 @@
-import { fontSize, fontWeight, shadows } from '../../styles/theme';
+import { fontSize, fontWeight, shadows, radiuses } from '../../styles/theme';
 
 type ShadowType = typeof shadows;
 interface Shadows extends ShadowType {}
 
-type Fs = typeof fontSize;
-interface FontSize extends Fs {}
+type FontSizeType = typeof fontSize;
+interface FontSize extends FontSizeType {}
 
-type Fw = typeof fontWeight;
-interface FontWeight extends Fw {}
+type FontWeightType = typeof fontWeight;
+interface FontWeight extends FontWeightType {}
 
-export interface CustomTheme extends Shadows, FontSize, FontWeight {
+type RadiusType = typeof radiuses;
+interface Radius extends RadiusType {}
+
+export interface CustomTheme extends Shadows, FontSize, FontWeight, Radius {
   dark: boolean;
   backgroundColor: string;
   backgroundSecondaryColor: string;
