@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
+import { BackBtn } from '../../components';
 
 const Details = () => {
   const [info, setInfo] = useState<Record<string, any>>();
@@ -19,6 +20,7 @@ const Details = () => {
 
   return (
     <div>
+      <BackBtn />
       <img alt="flag" />
       <div>
         <div>

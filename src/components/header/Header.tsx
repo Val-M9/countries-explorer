@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useTheme } from '@emotion/react';
-import { Sun, Moon } from '../../common/svg/svg';
+import { Sun, Moon } from '../../common/svg';
 import { header, heading, themeBtn, icon } from './styles';
 
 type HeaderProps = {

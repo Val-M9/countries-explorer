@@ -4,6 +4,11 @@ export const homeWrapper = css`
   margin: 50px;
 `;
 
+export const link = css`
+  text-decoration: none;
+  color: inherit;
+`;
+
 export const filterPlacement = css`
   margin-left: 15px;
   margin-bottom: 25px;

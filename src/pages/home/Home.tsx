@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
 import { RoutesPath } from '../../common/constants';
 import { Card, Loader, Search } from '../../components';
-import { home, homeWrapper, filterPlacement } from './styles';
+import { home, homeWrapper, filterPlacement, link } from './styles';
 
 const Home = () => {
   const [countries, setCountries] = useState<Record<string, any>[]>([]);
@@ -28,7 +28,11 @@ const Home = () => {
       </div>
       <div css={home}>
         {countries?.map((country) => (
-          <Link to={`${RoutesPath.DETAILS}${country.name.common}`} key={country.name.common}>
+          <NavLink
+            to={`${RoutesPath.DETAILS}${country.name.common}`}
+            key={country.name.common}
+            css={link}
+          >
             <Card
               flag={country.flags.png}
               name={country.name.common}
@@ -36,7 +40,7 @@ const Home = () => {
               population={country.population}
               capital={country.capital}
             />
-          </Link>
+          </NavLink>
         ))}
       </div>
     </div>
