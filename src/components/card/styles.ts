@@ -8,6 +8,7 @@ export const cardWrapper = (theme: Theme) => css`
   background-color: ${theme.backgroundSecondaryColor};
   border-radius: ${theme.rm}px;
   box-shadow: ${theme.dark ? theme.primaryDarkShadow : theme.primaryLightShadow};
+  cursor: pointer;
 `;
 
 export const image = (theme: Theme) => css`

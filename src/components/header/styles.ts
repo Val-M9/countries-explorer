@@ -5,7 +5,7 @@ export const header = (theme: Theme) => css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 70px;
   height: 80px;
   background-color: ${theme.backgroundSecondaryColor};
   box-shadow: ${theme.dark ? theme.headerDarkShadow : theme.headerLightShadow};

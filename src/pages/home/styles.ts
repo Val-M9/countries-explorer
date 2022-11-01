@@ -1,4 +1,3 @@
-import type { Theme } from '@emotion/react';
 import { css } from '@emotion/react';
 
 export const homeWrapper = css`
@@ -10,7 +9,7 @@ export const filterPlacement = css`
   margin-bottom: 25px;
 `;
 
-export const home = (theme: Theme) => css`
+export const home = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

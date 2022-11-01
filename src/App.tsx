@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { CustomThemeProvider } from './custom-provider/custom-theme-provider';
-import { Home } from './pages';
+import { Details, Home } from './pages';
 import { Header } from './components';
 import { themeSchemas } from './styles/theme';
 
@@ -19,7 +20,10 @@ const App = () => {
   return (
     <CustomThemeProvider theme={theme}>
       <Header onToggleTheme={handleToggleTheme} />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details" element={<Details />} />
+      </Routes>
     </CustomThemeProvider>
   );
 };
