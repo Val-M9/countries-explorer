@@ -7,12 +7,11 @@ type CardProps = {
   population: string;
   region: string;
   capital: string;
-  onShowDetails: () => void;
 };
 
-const Card = ({ flag, name, population, region, capital, onShowDetails }: CardProps) => {
+const Card = ({ flag, name, population, region, capital }: CardProps) => {
   return (
-    <div css={cardWrapper} onClick={onShowDetails}>
+    <div css={cardWrapper}>
       <img css={image} alt="flag" src={flag} />
       <div css={cardInfo}>
         <h2 css={title}>{name}</h2>

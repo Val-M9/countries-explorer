@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
+import { RoutesPath } from '../../common/constants';
 import { Card, Loader, Search } from '../../components';
 import { home, homeWrapper, filterPlacement } from './styles';
 
 const Home = () => {
   const [countries, setCountries] = useState<Record<string, any>[]>([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -16,10 +16,6 @@ const Home = () => {
       setCountries(result);
     })();
   }, []);
-
-  const handleShowDetails = () => {
-    navigate('details');
-  };
 
   if (!countries) {
     return <Loader />;
@@ -32,15 +28,15 @@ const Home = () => {
       </div>
       <div css={home}>
         {countries?.map((country) => (
-          <Card
-            key={country.name.common}
-            flag={country.flags.png}
-            name={country.name.common}
-            region={country.region}
-            population={country.population}
-            capital={country.capital}
-            onShowDetails={handleShowDetails}
-          />
+          <Link to={`${RoutesPath.DETAILS}${country.name.common}`} key={country.name.common}>
+            <Card
+              flag={country.flags.png}
+              name={country.name.common}
+              region={country.region}
+              population={country.population}
+              capital={country.capital}
+            />
+          </Link>
         ))}
       </div>
     </div>
