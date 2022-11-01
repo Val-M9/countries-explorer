@@ -2,21 +2,24 @@ import type { Theme } from '@emotion/react';
 import { css } from '@emotion/react';
 
 export const cardWrapper = (theme: Theme) => css`
-  width: 250px;
-  height: 400px;
-  margin: 40px;
+  width: 270px;
+  height: 350px;
+  margin: 25px 15px;
   background-color: ${theme.backgroundSecondaryColor};
   border-radius: ${theme.rm}px;
   box-shadow: ${theme.dark ? theme.primaryDarkShadow : theme.primaryLightShadow};
 `;
 
-export const flag = css`
+export const image = (theme: Theme) => css`
   width: 100%;
-  height: 190px;
+  height: 170px;
+  border-top-right-radius: ${theme.rm}px;
+  border-top-left-radius: ${theme.rm}px;
+  border-bottom: 1px solid ${theme.backgroundColor};
 `;
 
 export const cardInfo = css`
-  padding: 15px;
+  padding: 20px;
 `;
 
 export const title = (theme: Theme) => css`

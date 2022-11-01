@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { themeSchemas } from './styles/theme';
-import { Header } from './components/components';
 import { CustomThemeProvider } from './custom-provider/custom-theme-provider';
-import { Card } from './components/card/Card';
+import { Home } from './pages';
+import { Header } from './components';
+import { themeSchemas } from './styles/theme';
 
 const themeColors = {
   dark: themeSchemas.dark,
@@ -19,7 +19,7 @@ const App = () => {
   return (
     <CustomThemeProvider theme={theme}>
       <Header onToggleTheme={handleToggleTheme} />
-      <Card />
+      <Home />
     </CustomThemeProvider>
   );
 };

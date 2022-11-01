@@ -13,14 +13,16 @@ export const globalStyles = (theme: Theme) => css`
   body {
     display: flex;
     justify-content: center;
+    background-color: ${theme.backgroundSecondaryColor}
   }
 
   #root {
     width: 100%;
     max-width: 1440px;
-    height: 100vh;
+    height: 100%;
     background: ${theme.backgroundColor};
     color: ${theme.primaryTextColor};
+    box-shadow: ${theme.dark ? theme.headerDarkShadow : theme.headerLightShadow}
   }
 
   input,
