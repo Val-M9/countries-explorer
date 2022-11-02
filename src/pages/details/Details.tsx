@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
 import { getCurrencies, getDomains, getLanguages, getNativeName } from '../../helpers';
-import { BackBtn, Loader } from '../../components';
+import { ArrowBack } from '../../common/svg';
+import { Button, Loader } from '../../components';
 import {
   detailsWrapper,
   content,
@@ -19,6 +20,8 @@ import {
 
 const Details = () => {
   const { name } = useParams();
+  const navigate = useNavigate();
+
   const [info, setInfo] = useState<Record<string, any>>();
 
   useEffect(() => {
@@ -30,6 +33,10 @@ const Details = () => {
     })();
   }, [name]);
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   if (!info) {
     return <Loader />;
   }
@@ -37,7 +44,7 @@ const Details = () => {
     <div css={detailsWrapper}>
       <div css={content}>
         <div css={btn}>
-          <BackBtn />
+          <Button icon={<ArrowBack />} title="Back" onClick={handleGoBack} />
         </div>
         <div css={imageBlock}>
           <img src={info[0].flags.png} alt="flag" css={image} />
