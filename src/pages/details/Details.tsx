@@ -1,55 +1,57 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
-import { BackBtn } from '../../components';
+import { showCurrencies, showDomains, showLanguages } from '../../helpers';
+import { BackBtn, Loader } from '../../components';
 
 const Details = () => {
-  const [info, setInfo] = useState<Record<string, any>>();
   const { name } = useParams();
+  const [info, setInfo] = useState<Record<string, any>>();
 
   useEffect(() => {
     (async () => {
       if (name) {
         const result = await callApi.searchByName(name);
-        console.log(result);
         setInfo(result);
       }
     })();
   }, [name]);
-  console.log(name);
 
+  if (!info) {
+    return <Loader />;
+  }
   return (
     <div>
       <BackBtn />
       <img alt="flag" />
       <div>
         <div>
-          <h2></h2>
+          <h2>{info[0].name.common}</h2>
           <p>
-            <span></span>
+            Native Name: <span>{info[0].name.common}</span>
           </p>
           <p>
-            <span></span>
+            Population: <span>{info[0].population}</span>
           </p>
           <p>
-            <span></span>
+            Region: <span>{info[0].region}</span>
           </p>
           <p>
-            <span></span>
+            Sub region: <span>{info[0].subregion}</span>
           </p>
           <p>
-            <span></span>
+            Capital: <span>{info[0].capital}</span>
           </p>
         </div>
         <div>
           <p>
-            <span></span>
+            Top Level Domain: <span>{showDomains(info)}</span>
           </p>
           <p>
-            <span></span>
+            Currencies: <span>{showCurrencies(info)}</span>
           </p>
           <p>
-            <span></span>
+            Languages: <span>{showLanguages(info)}</span>
           </p>
         </div>
         <div></div>
