@@ -13,7 +13,8 @@ export const globalStyles = (theme: Theme) => css`
   body {
     display: flex;
     justify-content: center;
-    background-color: ${theme.backgroundSecondaryColor}
+    background-color: ${theme.backgroundSecondaryColor};
+    line-height: 1.2;
   }
 
   #root {

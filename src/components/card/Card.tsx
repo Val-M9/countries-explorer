@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { cardWrapper, image, cardInfo, title, info, definition } from './styles';
+import { cardWrapper, image, cardInfo, title, info, definition, content } from './styles';
 
 type CardProps = {
   flag: string;
@@ -12,18 +12,20 @@ type CardProps = {
 const Card = ({ flag, name, population, region, capital }: CardProps) => {
   return (
     <div css={cardWrapper}>
-      <img css={image} alt="flag" src={flag} />
-      <div css={cardInfo}>
-        <h2 css={title}>{name}</h2>
-        <p css={info}>
-          Population: <span css={definition}>{population}</span>
-        </p>
-        <p css={info}>
-          Region: <span css={definition}>{region}</span>
-        </p>
-        <p css={info}>
-          Capital: <span css={definition}>{capital}</span>
-        </p>
+      <div css={content}>
+        <img css={image} alt="flag" src={flag} />
+        <div css={cardInfo}>
+          <h2 css={title}>{name}</h2>
+          <p css={info}>
+            Population: <span css={definition}>{population}</span>
+          </p>
+          <p css={info}>
+            Region: <span css={definition}>{region}</span>
+          </p>
+          <p css={info}>
+            Capital: <span css={definition}>{capital}</span>
+          </p>
+        </div>
       </div>
     </div>
   );
