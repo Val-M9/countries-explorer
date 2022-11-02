@@ -33,13 +33,14 @@ export const infoBlock = (theme: Theme) => css`
   display: grid;
   grid-template-rows: 70px 1fr 70px;
   align-self: center;
-  margin-left: 30px;
+  margin-left: 15px;
   line-height: 1.9;
 `;
 
 export const countryName = (theme: Theme) => css`
-  font-size: ${theme.title};
+  font-size: ${theme.title}px;
   font-weight: ${theme.normal};
+  margin-left: 15px;
 `;
 
 export const overallInfo = css`
@@ -48,10 +49,13 @@ export const overallInfo = css`
 `;
 
 export const title = (theme: Theme) => css`
-  font-size: ${theme.text};
+  font-size: ${theme.text}px;
   font-weight: ${theme.light};
+  text-indent: -5px;
+  margin-left: 15px;
 `;
 
 export const description = (theme: Theme) => css`
   color: ${theme.secondaryTextColor};
+  margin-left: 0;
 `;

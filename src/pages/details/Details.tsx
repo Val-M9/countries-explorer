@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
-import { showCurrencies, showDomains, showLanguages } from '../../helpers';
+import { getCurrencies, getDomains, getLanguages } from '../../helpers';
 import { BackBtn, Loader } from '../../components';
 import {
   detailsWrapper,
@@ -16,6 +16,7 @@ import {
   title,
   description,
 } from './styles';
+import { getName } from '../../helpers/get-name';
 
 const Details = () => {
   const { name } = useParams();
@@ -43,7 +44,7 @@ const Details = () => {
           <img src={info[0].flags.png} alt="flag" css={image} />
         </div>
         <div css={infoBlock}>
-          <h2 css={countryName}>{info[0].name.common}</h2>
+          <h2 css={countryName}>{getName(info)}</h2>
           <div css={overallInfo}>
             <div>
               <p css={title}>
@@ -64,13 +65,13 @@ const Details = () => {
             </div>
             <div>
               <p css={title}>
-                Top Level Domain: <span css={description}>{showDomains(info)}</span>
+                Top Level Domain: <span css={description}>{getDomains(info)}</span>
               </p>
               <p css={title}>
-                Currencies: <span css={description}>{showCurrencies(info)}</span>
+                Currencies: <span css={description}>{getCurrencies(info)}</span>
               </p>
               <p css={title}>
-                Languages: <span css={description}>{showLanguages(info)}</span>
+                Languages: <span css={description}>{getLanguages(info)}</span>
               </p>
             </div>
           </div>

@@ -1,7 +1,5 @@
-const showLanguages = (country: any) => {
+const getLanguages = (country: any) => {
   const keys = Object.keys(country[0].languages);
-  console.log(keys);
-
   let values: string[] = [];
   let string = '';
 
@@ -14,4 +12,4 @@ const showLanguages = (country: any) => {
   return string.substring(0, string.length - 2);
 };
 
-export { showLanguages };
+export { getLanguages };

@@ -1,4 +1,4 @@
-const showCurrencies = (country: any) => {
+const getCurrencies = (country: any) => {
   const keys = Object.keys(country[0].currencies);
   let values: string[] = [];
   let string = '';
@@ -12,4 +12,4 @@ const showCurrencies = (country: any) => {
   return string.substring(0, string.length - 2);
 };
 
-export { showCurrencies };
+export { getCurrencies };
