@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
-import { getCurrencies, getDomains, getLanguages } from '../../helpers';
+import { getCurrencies, getDomains, getLanguages, getNativeName } from '../../helpers';
 import { BackBtn, Loader } from '../../components';
 import {
   detailsWrapper,
@@ -16,7 +16,6 @@ import {
   title,
   description,
 } from './styles';
-import { getName } from '../../helpers/get-name';
 
 const Details = () => {
   const { name } = useParams();
@@ -44,11 +43,11 @@ const Details = () => {
           <img src={info[0].flags.png} alt="flag" css={image} />
         </div>
         <div css={infoBlock}>
-          <h2 css={countryName}>{getName(info)}</h2>
+          <h2 css={countryName}>{info[0].name.common}</h2>
           <div css={overallInfo}>
             <div>
               <p css={title}>
-                Native Name: <span css={description}>{info[0].name.common}</span>
+                Native Name: <span css={description}>{getNativeName(info)}</span>
               </p>
               <p css={title}>
                 Population: <span css={description}>{info[0].population}</span>
