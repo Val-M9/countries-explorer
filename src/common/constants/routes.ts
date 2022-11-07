@@ -1,7 +1,6 @@
 const RoutesPath = {
   MAIN: '/',
-  DETAILS: 'details/',
-  DETAILS_NAME: 'details/:name',
+  DETAILS: '/:name',
 };
 
 export { RoutesPath };

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
 import { getBorders, getCurrencies, getDomains, getLanguages, getNativeName } from '../../helpers';
 import { ArrowBack } from '../../common/svg';
@@ -10,6 +10,7 @@ import * as styles from './styles';
 const Details = () => {
   const { name } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [countryInfo, setCountryInfo] = useState<Record<string, any>>();
   const [borderCountries, setBorderCountries] = useState<Record<string, any>[]>();
@@ -29,10 +30,12 @@ const Details = () => {
     })();
   }, [name]);
 
-  console.log(borderCountries);
-
   const handleGoBack = () => {
     navigate(-1);
+  };
+
+  const openBorderCountry = (name: string) => {
+    navigate(`/${name}`);
   };
 
   if (!countryInfo) {
@@ -86,9 +89,7 @@ const Details = () => {
                 <Button
                   style={styles.btnStyle}
                   title={country.name.common}
-                  onClick={() => {
-                    console.log('clicked');
-                  }}
+                  onClick={() => openBorderCountry(country.name.common)}
                 />
               ))
             ) : (

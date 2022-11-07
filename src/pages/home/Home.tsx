@@ -8,13 +8,10 @@ import { home, homeWrapper, filterPlacement, link } from './styles';
 
 const Home = () => {
   const [countries, setCountries] = useState<Record<string, any>[] | undefined>([]);
-  const [code, setCode] = useState();
 
   useEffect(() => {
     (async () => {
       const allCountries = await callApi.getAll();
-      const contryByCode = await callApi.getByCode('052');
-      console.log(allCountries);
       setCountries(allCountries);
     })();
   }, []);
@@ -30,11 +27,7 @@ const Home = () => {
       </div>
       <div css={home}>
         {countries?.map((country) => (
-          <NavLink
-            to={`${RoutesPath.DETAILS}${country.name.common}`}
-            key={country.name.common}
-            css={link}
-          >
+          <NavLink to={`/${country.name.common}`} key={country.name.common} css={link}>
             <Card
               flag={country.flags.png}
               name={country.name.common}

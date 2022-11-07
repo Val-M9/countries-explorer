@@ -23,7 +23,7 @@ const App = () => {
       <Header onToggleTheme={handleToggleTheme} />
       <Routes>
         <Route path={RoutesPath.MAIN} element={<Home />} />
-        <Route path={RoutesPath.DETAILS_NAME} element={<Details />} />
+        <Route path={RoutesPath.DETAILS} element={<Details />} />
       </Routes>
     </CustomThemeProvider>
   );
