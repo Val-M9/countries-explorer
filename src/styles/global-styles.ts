@@ -30,6 +30,7 @@ export const globalStyles = (theme: Theme) => css`
   button,
   textarea,
   select {
+    color: ${theme.primaryTextColor};
     font: inherit;
   }
 

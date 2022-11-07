@@ -1,19 +1,13 @@
 /** @jsxImportSource @emotion/react */
-import { ReactElement } from 'react';
-import { btnWrapper } from './styles';
+import { ButtonProps } from '../../common/types';
+import { btnWrapper, iconStyle, text } from './styles';
 
-type ButtonProps = {
-  icon?: ReactElement<any, any>;
-  title: string;
-  onClick: () => void;
-};
-
-const Button = ({ icon, title, onClick }: ButtonProps) => {
+const Button = ({ icon, title, onClick, style }: ButtonProps) => {
   return (
-    <div css={btnWrapper} onClick={onClick}>
-      {icon && icon}
-      <p>{title}</p>
-    </div>
+    <button css={[btnWrapper, style]} onClick={onClick}>
+      {icon && <div css={iconStyle}>{icon}</div>}
+      <p css={text}>{title}</p>
+    </button>
   );
 };
 

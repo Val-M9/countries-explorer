@@ -23,7 +23,7 @@ export const fontSize = {
 };
 
 export const radiuses = {
-  rs: 4,
+  rs: 6,
   rm: 8,
 };
 

@@ -2,86 +2,99 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
-import { getCurrencies, getDomains, getLanguages, getNativeName } from '../../helpers';
+import { getBorders, getCurrencies, getDomains, getLanguages, getNativeName } from '../../helpers';
 import { ArrowBack } from '../../common/svg';
 import { Button, Loader } from '../../components';
-import {
-  detailsWrapper,
-  content,
-  btn,
-  image,
-  infoBlock,
-  imageBlock,
-  countryName,
-  overallInfo,
-  title,
-  description,
-} from './styles';
+import * as styles from './styles';
 
 const Details = () => {
   const { name } = useParams();
   const navigate = useNavigate();
 
-  const [info, setInfo] = useState<Record<string, any>>();
+  const [countryInfo, setCountryInfo] = useState<Record<string, any>>();
+  const [borderCountries, setBorderCountries] = useState<Record<string, any>[]>();
 
   useEffect(() => {
     (async () => {
       if (name) {
-        const result = await callApi.searchByName(name);
-        setInfo(result);
+        const info = await callApi.getByName(name);
+        const borders = info && getBorders(info[0].borders);
+
+        if (borders) {
+          const getBorderCountries = await callApi.getByCode(borders);
+          setBorderCountries(getBorderCountries);
+        }
+        setCountryInfo(info);
       }
     })();
   }, [name]);
+
+  console.log(borderCountries);
 
   const handleGoBack = () => {
     navigate(-1);
   };
 
-  if (!info) {
+  if (!countryInfo) {
     return <Loader />;
   }
   return (
-    <div css={detailsWrapper}>
-      <div css={content}>
-        <div css={btn}>
+    <div css={styles.detailsWrapper}>
+      <div css={styles.content}>
+        <div css={styles.btn}>
           <Button icon={<ArrowBack />} title="Back" onClick={handleGoBack} />
         </div>
-        <div css={imageBlock}>
-          <img src={info[0].flags.png} alt="flag" css={image} />
+        <div css={styles.imageBlock}>
+          <img src={countryInfo[0].flags.png} alt="flag" css={styles.image} />
         </div>
-        <div css={infoBlock}>
-          <h2 css={countryName}>{info[0].name.common}</h2>
-          <div css={overallInfo}>
+        <div css={styles.infoBlock}>
+          <h2 css={styles.countryName}>{countryInfo[0].name.common}</h2>
+          <div css={styles.overallInfo}>
             <div>
-              <p css={title}>
-                Native Name: <span css={description}>{getNativeName(info)}</span>
+              <p css={styles.title}>
+                Native Name: <span>{getNativeName(countryInfo)}</span>
               </p>
-              <p css={title}>
-                Population: <span css={description}>{info[0].population}</span>
+              <p css={styles.title}>
+                Population: <span>{countryInfo[0].population}</span>
               </p>
-              <p css={title}>
-                Region: <span css={description}>{info[0].region}</span>
+              <p css={styles.title}>
+                Region: <span>{countryInfo[0].region}</span>
               </p>
-              <p css={title}>
-                Sub region: <span css={description}>{info[0].subregion}</span>
+              <p css={styles.title}>
+                Sub region: <span>{countryInfo[0].subregion}</span>
               </p>
-              <p css={title}>
-                Capital: <span css={description}>{info[0].capital}</span>
+              <p css={styles.title}>
+                Capital: <span>{countryInfo[0].capital}</span>
               </p>
             </div>
             <div>
-              <p css={title}>
-                Top Level Domain: <span css={description}>{getDomains(info)}</span>
+              <p css={styles.title}>
+                Top Level Domain: <span>{getDomains(countryInfo)}</span>
               </p>
-              <p css={title}>
-                Currencies: <span css={description}>{getCurrencies(info)}</span>
+              <p css={styles.title}>
+                Currencies: <span>{getCurrencies(countryInfo)}</span>
               </p>
-              <p css={title}>
-                Languages: <span css={description}>{getLanguages(info)}</span>
+              <p css={styles.title}>
+                Languages: <span>{getLanguages(countryInfo)}</span>
               </p>
             </div>
           </div>
-          <div></div>
+          <div css={styles.borderBlock}>
+            <h3 css={styles.borderTitle}>Border countries:</h3>
+            {borderCountries ? (
+              borderCountries?.map((country) => (
+                <Button
+                  style={styles.btnStyle}
+                  title={country.name.common}
+                  onClick={() => {
+                    console.log('clicked');
+                  }}
+                />
+              ))
+            ) : (
+              <p>No border countries</p>
+            )}
+          </div>
         </div>
       </div>
     </div>

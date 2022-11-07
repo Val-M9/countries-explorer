@@ -7,13 +7,15 @@ import { Card, Loader, Search } from '../../components';
 import { home, homeWrapper, filterPlacement, link } from './styles';
 
 const Home = () => {
-  const [countries, setCountries] = useState<Record<string, any>[]>([]);
+  const [countries, setCountries] = useState<Record<string, any>[] | undefined>([]);
+  const [code, setCode] = useState();
 
   useEffect(() => {
     (async () => {
-      const result = await callApi.getAll();
-      console.log(result);
-      setCountries(result);
+      const allCountries = await callApi.getAll();
+      const contryByCode = await callApi.getByCode('052');
+      console.log(allCountries);
+      setCountries(allCountries);
     })();
   }, []);
 

@@ -1,4 +1,4 @@
-import { fontSize, fontWeight, shadows, radiuses } from '../../styles/theme';
+import { fontSize, fontWeight, shadows, radiuses } from '../../../styles/theme';
 
 type ShadowType = typeof shadows;
 interface Shadows extends ShadowType {}
