@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { Magnifier } from '../../common/svg';
+import { Magnifier } from '../svg';
 import { inputWrapper, input, icon } from './styles';
 
 const Search = () => {

@@ -3,15 +3,12 @@ import { useEffect, useState, FC } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
 import { getBorders, getCurrencies, getDomains, getLanguages, getNativeName } from '../../helpers';
-import { ArrowBack } from '../../common/svg';
-import { Button, Loader } from '../../components';
-import { themeSchemas } from '../../styles/theme';
+import { Button, Loader, ArrowBack } from '../../components';
 import * as styles from './styles';
 
 const Details: FC = () => {
   const { name } = useParams();
   const navigate = useNavigate();
-  console.log(themeSchemas);
 
   const [countryInfo, setCountryInfo] = useState<Record<string, any>>();
   const [borderCountries, setBorderCountries] = useState<Record<string, any>[]>();
