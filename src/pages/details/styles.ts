@@ -28,7 +28,7 @@ export const image = css`
   width: 100%;
 `;
 
-export const infoBlock = (theme: Theme) => css`
+export const infoBlock = css`
   display: grid;
   grid-template-rows: 70px 1fr 150px;
   align-self: center;
@@ -78,6 +78,20 @@ export const borderTitle = css`
 `;
 
 export const btnStyle = (theme: Theme) => css`
+  position: relative;
   margin: 5px;
+  margin-bottom: 20px
   height: 30px;
+
+  &:hover:before {
+    content: attr(datatype);
+    position: absolute;
+    top: -30px;
+    padding: 0px 8px 5px 8px;
+    text-align: center;
+    width: max-content;
+    height: 25px;
+    background-color: ${theme.backgroundSecondaryColor};
+    border-radius: ${theme.rs}px;
+  }
 `;

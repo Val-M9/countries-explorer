@@ -1,16 +1,17 @@
 /** @jsxImportSource @emotion/react */
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState, FC } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
 import { getBorders, getCurrencies, getDomains, getLanguages, getNativeName } from '../../helpers';
 import { ArrowBack } from '../../common/svg';
 import { Button, Loader } from '../../components';
+import { themeSchemas } from '../../styles/theme';
 import * as styles from './styles';
 
-const Details = () => {
+const Details: FC = () => {
   const { name } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
+  console.log(themeSchemas);
 
   const [countryInfo, setCountryInfo] = useState<Record<string, any>>();
   const [borderCountries, setBorderCountries] = useState<Record<string, any>[]>();
@@ -86,11 +87,12 @@ const Details = () => {
             <h3 css={styles.borderTitle}>Border countries:</h3>
             {borderCountries ? (
               borderCountries?.map((country) => (
-                <Button
-                  style={styles.btnStyle}
-                  title={country.name.common}
-                  onClick={() => openBorderCountry(country.name.common)}
-                />
+                <div css={styles.btnStyle} datatype={`${country.name.common}`}>
+                  <Button
+                    title={country.name.common}
+                    onClick={() => openBorderCountry(country.name.common)}
+                  />
+                </div>
               ))
             ) : (
               <p>No border countries</p>

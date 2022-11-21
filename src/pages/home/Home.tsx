@@ -1,12 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { callApi } from '../../api/call-api';
-import { RoutesPath } from '../../common/constants';
 import { Card, Loader, Search } from '../../components';
 import { home, homeWrapper, filterPlacement, link } from './styles';
 
-const Home = () => {
+const Home: FC = () => {
   const [countries, setCountries] = useState<Record<string, any>[] | undefined>([]);
 
   useEffect(() => {
